@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Password</title>
+    <link rel="icon" type="image" href="photos/logo.png">
+    <link rel="stylesheet" href="css/newpass.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Reset Password</h2>
+            <form id="password-form" action="login.html">
+                <label for="new-password"><b>New Password:</b></label>
+                <input type="password" id="new-password" name="new-password" required minlength="8" maxlength="50" placeholder="Enter new password"><br>
+
+                <label for="confirm-password"><b>Confirm Password:</b></label>
+                <input type="password" id="confirm-password" name="confirm-password" required minlength="8" maxlength="50" placeholder="Confirm your new password"><br>
+                <input type="submit" value="Confirm">
+            </form>
+        </div>
+    </div>
+
+    <!-- <script>
+        document.getElementById('password-form').addEventListener('submit', function(event) {
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            if (newPassword !== confirmPassword) {
+                event.preventDefault();
+                // Alert the user about the mismatch
+                alert('Passwords do not match. Please try again.');
+            } else {
+                // Optionally, you can display a confirmation message before redirecting
+                alert('Password successfully reset! Redirecting to login...');
+            }
+        });
+    </script> -->
+</body>
+</html>
