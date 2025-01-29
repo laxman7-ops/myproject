@@ -111,7 +111,7 @@ ul li a:hover{
 
 .content h1{
     font-family: 'Times New Roman';
-    font-size: 50px;
+    font-size: 75px;
     padding-left: 20px;
     margin-top: 9%;
     letter-spacing: 2px;
@@ -123,7 +123,7 @@ ul li a:hover{
     background: #ff7200;
     border: none;
     margin-bottom: 10px;
-    margin-left: 20px;
+    margin-left: 550px;
     font-size: 18px;
     border-radius: 10px;
     cursor: pointer;
@@ -137,40 +137,62 @@ ul li a:hover{
     transition: .3s ease;
 }
 
-.cn:hover{
-    background-color: #fff;
+.content .cn:hover{
+    background-color: #df8d44;
 }
 
 .content span{
     color: #ff7200;
     font-size: 65px
 }
+.row1{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+.row1 .cn{
+    width: 160px;
+    height: 40px;
+    background: #000000;
+    border: none;
+    margin-bottom: 10px;
+    margin-left: 535px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .4s ease;
+    
+}
 
+.row1 .cn a{
+    text-decoration: none;
+    color: #ffffff;
+    transition: .3s ease;
+}
+
+.row1 .cn:hover{
+    background-color: #3e3838;
+}
+
+.like{
+
+  float: left;
+  position: relative;
+  bottom: 30px;
+  margin-left: 200px;
+}
 .form{
     margin-top: 13px;
     margin-left: 125px;
-    width: 250px;
-    height: 400px;
-    background: linear-gradient(to top, rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
-    position: absolute;
-    top: -20px;
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+    background-color: rgb(255, 255, 255);
     left: 870px;
     transform: translate(0%,-5%);
     border-radius: 10px;
     padding: 25px;
 }
-
-.form h2{
-    width: 220px;
-    font-family: sans-serif;
-    text-align: center;
-    color: #ff7200;
-    font-size: 22px;
-    border-radius: 10px;
-    margin: 2px;
-    padding: 8px;
-}
-
 .form input{
     width: 240px;
     height: 35px;
@@ -179,7 +201,7 @@ ul li a:hover{
     border-top: none;
     border-right: none;
     border-left: none;
-    color: #fff;
+    color: #000000;
     font-size: 15px;
     letter-spacing: 1px;
     margin-top: 30px;
@@ -191,63 +213,6 @@ ul li a:hover{
 }
 
 ::placeholder{
-    color: #fff;
+    color: #000000;
     font-family: Arial;
-}
-
-.btnn{
-    width: 240px;
-    height: 40px;
-    background: #ff7200;
-    border: none;
-    margin-top: 30px;
-    font-size: 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #fff;
-    transition: 0.4s ease;
-}
-.btnn:hover{
-    background: #fff;
-    color: #ff7200;
-}
-.btnn a{
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-}
-.form .link{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-    padding-top: 20px;
-    text-align: center;
-    color: lightyellow;
-}
-.form .link a{
-    text-decoration: none;
-    color: #ff7200;
-}
-.liw{
-    padding-top: 15px;
-    padding-bottom: 10px;
-    text-align: center;
-    color:  #a9a1ff;
-}
-.icons a{
-    text-decoration: none;
-    color: #fff;
-}
-.icons ion-icon{
-    color: #fff;
-    font-size: 30px;
-    padding-left: 14px;
-    padding-top: 5px;
-    transition: 0.3s ease;
-}
-.icons ion-icon:hover{
-    color: #ff7200;
-}
-.frgt{
-    color: #a9a1ff;
-    text-decoration: none;
 }

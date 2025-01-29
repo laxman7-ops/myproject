@@ -43,23 +43,50 @@ input[type="date"] {
     font-size: 14px;
     box-sizing: border-box;
 }
-input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50; 
-    color: white;
+.btnn{
+    width: 100px;
+    height: 40px;
+    background: #ff7200;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 150px;
+    font-size: 18px;
+    border-radius: 10px;
     cursor: pointer;
+    color: #fff;
+    transition: 0.4s ease;
+}
+.btnn:hover{
+    background: #ff4242;
+    color: #ff7200;
+}
+.btnn a{
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+.liw{
+    padding-top: 15px;
     text-align: center;
+    color:  #000000;
 }
-
-button:hover {
-    background-color: #45a049; 
+.lw{
+    text-align: center;
+    color: #000;
 }
-
-
+.icons a{
+    text-decoration: none;
+    color: #fff;
+}
+.icons ion-icon{
+    color: #7a7a7a;
+    font-size: 30px;
+    padding-left: 20px;
+    transition: 0.3s ease;
+}
+.icons ion-icon:hover{
+    color: #ff7200;
+}
 @media (max-width: 480px) {
     .table1 {
         width: 90%;

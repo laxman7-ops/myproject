@@ -76,3 +76,27 @@ a {
     display: block;
     text-decoration: none  ;
 }
+.liw{
+    padding-top: 15px;
+    padding-bottom: 10px;
+    text-align: center;
+    color:  #000000;
+}
+.icons a{
+    text-decoration: none;
+    color: #fff;
+}
+.icons ion-icon{
+    color: #7a7a7a;
+    font-size: 30px;
+    padding-left: 20px;
+    padding-top: 5px;
+    transition: 0.3s ease;
+}
+.icons ion-icon:hover{
+    color: #ff7200;
+}
+.lw{
+    text-align: center;
+    color: #000;
+}
