@@ -100,3 +100,7 @@ a {
     text-align: center;
     color: #000;
 }
+.error{
+    color: red;
+    font-style: italic;
+}
