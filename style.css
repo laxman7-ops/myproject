@@ -251,3 +251,7 @@ ul li a:hover{
     color: #a9a1ff;
     text-decoration: none;
 }
+.error{
+    color: red;
+    font-style: italic;
+}

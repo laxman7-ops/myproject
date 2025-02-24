@@ -24,41 +24,75 @@
                 <input type="srch" name="srch" placeholder="Search post">
                 <a href="#"><button class="btn"><img src="images/serach-icon.png" height="10px" width="15px"></button></a>
             </div>
-
         </div>
         <div class="content">
-                <h1>Welcome to <br><span>Blogging</span> <br>Website</h1>
-                <p class="par">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt neque 
-                     expedita atque eveniet <br> quis nesciunt. Quos nulla vero consequuntur, fugit nemo ad delectus 
-                    <br> a quae totam ipsa illum minus laudantium?</p>
+            <h1>Welcome to <br><span>Blogging</span> <br>Website</h1>
+            <p class="par">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt neque 
+                expedita atque eveniet <br> quis nesciunt. Quos nulla vero consequuntur, fugit nemo ad delectus 
+                <br> a quae totam ipsa illum minus laudantium?</p>
     
-                    <button class="cn"><a href="#">JOIN US</a></button>
+            <button class="cn"><a href="#">JOIN US</a></button>
     
-                    <div class="form">
-                        <h2>Login</h2>
-                        <input type="email" name="email" placeholder="Enter Email Here">
-                        <input type="password" name="" placeholder="Enter Password Here">
-                        <a href="forgot.html" class="frgt">Foget password</a>
-                        <button class="btnn"><a href="indexx.html">Login</a></button>
-    
-                        <p class="link">Don't have an account<br>
-                        <a href="register.html">Sign up </a> here</a></p>
-                        <p class="liw">Log in with</p>
-    
-                        <div class="icons">
-                            <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-                            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-                            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-                            <a href="#"><ion-icon name="logo-google"></ion-icon></a>
-                            <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
-                        </div>
+            <div class="form">
+                <form id="loginform" action="login.php" method="post">
+                    <h2>Login</h2>
+                    <input type="email" name="email" placeholder="Enter Email Here"><br>
+                    <div class="error" id="emailError"></div>
 
+                    <input type="password" name="password" placeholder="Enter Password Here"><br>
+                    <div class="error" id="passwordError"></div>
+
+                    <a href="forgot.html" class="frgt">Forget password</a>
+                    <button class="btnn" name="login">Login</button>
+    
+                    <p class="link">Don't have an account?<br>
+                    <a href="register.html">Sign up</a> here</p>
+                    <p class="liw">Log in with</p>
+    
+                    <div class="icons">
+                        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-google"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
                     </div>
-                    </div>
-                    </div>
+                </form>
             </div>
         </div>
-        <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-    </body>
+    </div>
+
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script>
+        document.getElementById("loginform").addEventListener("submit", function(event) {
+            let isValid = true;
+    
+            let email = document.querySelector('input[name="email"]').value;
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (email.trim() === "") {
+                document.getElementById("emailError").innerText = "Email is required";
+                isValid = false;
+            } else if (!email.match(emailPattern)) {
+                document.getElementById("emailError").innerText = "Enter a valid email address";
+                isValid = false;
+            } else {
+                document.getElementById("emailError").innerText = "";
+            }
+    
+            let password = document.querySelector('input[name="password"]').value;
+            if (password.trim() === "") {
+                document.getElementById("passwordError").innerText = "Password is required";
+                isValid = false;
+            } else if (password.length < 6 || password.length > 30) {
+                document.getElementById("passwordError").innerText = "Password must be between 6 and 30 characters";
+                isValid = false;
+            } else {
+                document.getElementById("passwordError").innerText = "";
+            }
+    
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
 </html>
-       

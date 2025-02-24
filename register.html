@@ -11,27 +11,32 @@
     <div class="container">
         <div class="table1">
             <h1>Register</h1>
-            <form action="login.html" method="POST">
-                <label for="fname"><b>Full Name</b></label>
-                <input type="text" id="fname" name="fname" placeholder="Your full name" ><br>
-                <div class="error" id="nameError">
-                </div>
+            <form id="myform" action="register.php" method="POST">
+                <label for="fname"><b>Name</b></label>
+                <input type="text" id="name" name="name" placeholder="Your full name"><br>
+                <div class="error" id="nameError"></div>
 
                 <label for="email"><b>Email</b></label>
-                <input type="email" id="email" name="email" placeholder="Your email address" ><br>
-                <div class="error" id="emailError">
-                </div> 
+                <input type="email" id="email" name="email" placeholder="Your email address"><br>
+                <div class="error" id="emailError"></div> 
 
                 <label for="password"><b>New Password</b></label>
-                <input type="password" id="password" name="password" placeholder="Create a password" ><br>
+                <input type="password" id="password" name="password" placeholder="Create a password"><br>
+                <div class="error" id="passwordError"></div>
+
                 <label for="confirm-password"><b>Confirm Password</b></label>
                 <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password"><br>
+                <div class="error" id="confirmPasswordError"></div>
+
                 <label for="dob"><b>Date of Birth</b></label>
-                <input type="date" id="dob" name="dob" required><br>
-                <button class="btnn"><a href="index.html">Register</a></button>
-                <p class="liw">Already have account ?<br><a href="login.html" style="text-decoration: none; color: #40f;">Login</a> </p>
+                <input type="date" id="dob" name="dob"><br>
+                <div class="error" id="dobError"></div>
+
+                <button class="btnn" name="submit">Register</button>
+
+                <p class="liw">Already have an account? <br><a href="index.html" style="text-decoration: none; color: #40f;">Login</a></p>
                 <p class="lw">Login with</p>
-            </form>
+            
             <div class="icons" style="padding-left: 55px;">
                 <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
                 <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
@@ -40,8 +45,79 @@
                 <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
             </div>
         </div>
-
+    </form>
     </div>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script>
+        document.getElementById("myform").addEventListener("submit", function(event) {
+            let isValid = true;
+
+            let name = document.getElementById("name").value;
+            let namePattern = /^[A-Za-z\s]+$/;
+            if (name.trim() === "") {
+                document.getElementById("nameError").innerText = "Required";
+                isValid = false;
+            } else if (!name.match(namePattern)) {
+                document.getElementById("nameError").innerText = "Only alphabets and spaces are allowed";
+                isValid = false;
+            } else {
+                document.getElementById("nameError").innerText = "";
+            }
+
+            let email = document.getElementById("email").value;
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (email.trim() === "") {
+                document.getElementById("emailError").innerText = "Required";
+                isValid = false;
+            } else if (!email.match(emailPattern)) {
+                document.getElementById("emailError").innerText = "Enter a valid email address";
+                isValid = false;
+            } else {
+                document.getElementById("emailError").innerText = "";
+            }
+
+            let password = document.getElementById("password").value;
+            if (password.trim() === "") {
+                document.getElementById("passwordError").innerText = "Required";
+                isValid = false;
+            } else if (password.length < 6 || password.length > 30) {
+                document.getElementById("passwordError").innerText = "Password must be between 6 and 30 characters";
+                isValid = false;
+            } else {
+                document.getElementById("passwordError").innerText = "";
+            }
+
+            let confirmPassword = document.getElementById("confirm-password").value;
+            if (confirmPassword.trim() === "") {
+                document.getElementById("confirmPasswordError").innerText = "Required";
+                isValid = false;
+            } else if (confirmPassword !== password) {
+                document.getElementById("confirmPasswordError").innerText = "Passwords do not match";
+                isValid = false;
+            } else {
+                document.getElementById("confirmPasswordError").innerText = "";
+            }
+
+            let dob = document.getElementById("dob").value;
+            let realdob = new Date(dob);
+            let todayDate = new Date();
+            if (dob.trim() === "") {
+                document.getElementById("dobError").innerText = "Required";
+                isValid = false;
+            } else if (realdob > todayDate) {
+                document.getElementById("dobError").innerText = "Enter a valid date";
+                isValid = false;
+            } else {
+                document.getElementById("dobError").innerText = "";
+            }
+
+            if (!isValid) {
+                alert("Form is invalid");
+                event.preventDefault();
+            } else {
+                alert("Successfully Created!!");
+            }
+        });
+    </script>
 </body>
 </html>
