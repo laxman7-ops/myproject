@@ -1,4 +1,3 @@
-
 <?php
 include('connection.php');
 if(isset($_POST['login'])){
@@ -16,7 +15,10 @@ if(isset($_POST['login'])){
      exit();
     }
     else{
-     echo "Not Found, Incorrect Email or Password";
+     echo '<script>
+     alert("Incorrect Email or Password");
+     window.location.href="index.html";
+     </script>';
     }
  
  }

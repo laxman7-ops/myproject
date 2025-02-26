@@ -30,12 +30,21 @@
             <div class="cont" style="display: flex; margin-left: 100px; margin-top: 100px;">
                 <img src="images/contact-img.png" height="300px" width="400px">
             
-                <div class="form" style="display: flex; flex-direction: column; margin-left: 300px; padding: 10px;"> 
+                <div class="form" style="display: flex; flex-direction: column; margin-left: 300px; padding: 10px;height: 330px;"> 
+                    <form action="contact.php" method="post">
             <h2>Contact us</h2>
-            <input type="text" name="" placeholder="Name">
-            <input type="phone" name="" placeholder="Phone">
-            <input type="email" name="" placeholder="Email">
-            <textarea class="massage_text" placeholder="Message" rows="5" id="comment" name="Message"></textarea>
+            <input type="text" name="name" placeholder="Name">
+            <div class="error">
+
+            </div>
+            <input type="phone" name="phone" placeholder="Phone">
+            <div class="error"></div>
+            <input type="email" name="email" placeholder="Email">
+            <div class="error"></div>
+            <textarea class="massage_text" placeholder="Message" rows="2" cols="25" id="comment" name="message"></textarea>
+            <div class="error"></div>
+            <button type="submit" name="submit" style="background-color: orangered; color: white; margin-left: 130px; margin-top: 15px; font-size: 16px; ">Submit</button>
+        </form>
             </div>
             </div>
         </div>
@@ -63,6 +72,53 @@
                      </div>
                
         <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+        <script>
+// Get the form element
+const form = document.querySelector('form');
+
+// Add an event listener to the form's submit event
+form.addEventListener('submit', (e) => {
+  const name = document.querySelector('input[name="name"]');
+  const phone = document.querySelector('input[name="phone"]');
+  const email = document.querySelector('input[name="email"]');
+  const message = document.querySelector('textarea[name="message"]');
+
+  // Check if the name field is empty
+  if (name.value.trim() === '') {
+    alert('Please enter your name');
+    e.preventDefault();
+  }
+
+  // Check if the phone field is empty or not a valid phone number
+  if (phone.value.trim() === '' || !/^\d{3}-\d{3}-\d{4}$/.test(phone.value)) {
+    alert('Please enter a valid phone number (XXX-XXX-XXXX)');
+    e.preventDefault();
+  }
+
+  // Check if the email field is empty or not a valid email
+  if (email.value.trim() === '' || !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.value)) {
+    alert('Please enter a valid email address');
+    e.preventDefault();
+  }
+
+  // Check if the message field is empty
+  if (message.value.trim() === '') {
+    alert('Please enter a message');
+    e.preventDefault();
+  }
+  
+  // If all fields are valid, allow the form to submit
+  if (
+    name.value.trim() !== '' &&
+    phone.value.trim() !== '' && /^\d{3}-\d{3}-\d{4}$/.test(phone.value) &&
+    email.value.trim() !== '' && /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.value) &&
+    message.value.trim() !== ''
+  ) {
+    alert('Form submitted successfully!');
+  }
+});
+
+        </script>
     </body>
 </html>
        
