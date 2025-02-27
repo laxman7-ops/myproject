@@ -12,7 +12,7 @@
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="indexx.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="post.html">Posts</a></li>
                     <li><a href="about.html">About</a></li>
@@ -21,7 +21,7 @@
             </div>
 
             <div class="search">
-                <input type="srch" name="srch" placeholder="Search post">
+                <input type="search" name="search" placeholder="Search post">
                 <a href="#"><button class="btn"><img src="images/serach-icon.png" height="10px" width="15px"></button></a>
             </div>
 
@@ -30,25 +30,23 @@
             <div class="cont" style="display: flex; margin-left: 100px; margin-top: 100px;">
                 <img src="images/contact-img.png" height="300px" width="400px">
             
-                <div class="form" style="display: flex; flex-direction: column; margin-left: 300px; padding: 10px;height: 330px;"> 
-                    <form action="contact.php" method="post">
+                <div class="form" style="display: flex; color: white; flex-direction: column; margin-left: 300px; padding: 10px;height: 400px;"> 
+            <form id="myForm" action="contact.php" method="post" style="margin-top: 15px;">
             <h2>Contact us</h2>
-            <input type="text" name="name" placeholder="Name">
-            <div class="error">
-
-            </div>
-            <input type="phone" name="phone" placeholder="Phone">
-            <div class="error"></div>
-            <input type="email" name="email" placeholder="Email">
-            <div class="error"></div>
-            <textarea class="massage_text" placeholder="Message" rows="2" cols="25" id="comment" name="message"></textarea>
-            <div class="error"></div>
-            <button type="submit" name="submit" style="background-color: orangered; color: white; margin-left: 130px; margin-top: 15px; font-size: 16px; ">Submit</button>
+            <input type="text" id="name" name="name" placeholder="Name">
+            <div id="nameError" class="error"></div>
+            <input type="tel" id="phone" name="phone" placeholder="Phone">
+            <div id="phoneError" class="error"></div>
+            <input type="email" id="email" name="email" placeholder="Email">
+            <div id="emailError" class="error"></div>
+            <textarea class="massage_text" id="message" name="message" placeholder="Message" rows="2" cols="25"></textarea>
+            <div id="messageError" class="error"></div>
+            <button type="submit" name="submit" style="background-color: orangered; color: white; margin-left: 100px; margin-top: 15px; font-size: 16px; ">Submit</button>
         </form>
             </div>
             </div>
         </div>
-                    <div class="footer_section layout_padding" style="height: 330px;margin-top: 225px; background: linear-gradient(to top, rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%); width: 114%;">
+                    <div class="footer_section layout_padding" style="height: 330px;margin-top: 130px; background: linear-gradient(to top, rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%); width: 114%;">
                         <div class="container">
                            <div class="footer_logo" ><a href="index.html"><img src="images/footer-logo.png" height="100px" width="100px" style="margin-left: 700px;margin-top: 50px;"></a></div>
                            <div class="footer_menu" style="display: flex; margin-left: 320px;">
@@ -73,52 +71,57 @@
                
         <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
         <script>
-// Get the form element
-const form = document.querySelector('form');
-
-// Add an event listener to the form's submit event
-form.addEventListener('submit', (e) => {
-  const name = document.querySelector('input[name="name"]');
-  const phone = document.querySelector('input[name="phone"]');
-  const email = document.querySelector('input[name="email"]');
-  const message = document.querySelector('textarea[name="message"]');
-
-  // Check if the name field is empty
-  if (name.value.trim() === '') {
-    alert('Please enter your name');
-    e.preventDefault();
-  }
-
-  // Check if the phone field is empty or not a valid phone number
-  if (phone.value.trim() === '' || !/^\d{3}-\d{3}-\d{4}$/.test(phone.value)) {
-    alert('Please enter a valid phone number (XXX-XXX-XXXX)');
-    e.preventDefault();
-  }
-
-  // Check if the email field is empty or not a valid email
-  if (email.value.trim() === '' || !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.value)) {
-    alert('Please enter a valid email address');
-    e.preventDefault();
-  }
-
-  // Check if the message field is empty
-  if (message.value.trim() === '') {
-    alert('Please enter a message');
-    e.preventDefault();
-  }
-  
-  // If all fields are valid, allow the form to submit
-  if (
-    name.value.trim() !== '' &&
-    phone.value.trim() !== '' && /^\d{3}-\d{3}-\d{4}$/.test(phone.value) &&
-    email.value.trim() !== '' && /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email.value) &&
-    message.value.trim() !== ''
-  ) {
-    alert('Form submitted successfully!');
-  }
-});
-
-        </script>
+          document.getElementById("myForm").addEventListener("submit", function(event) {
+              let isValid = true;
+          
+              let name = document.getElementById("name").value;
+              let namePattern = /^[A-Za-z\s]+$/;
+              if (name.trim() === "") {
+                  document.getElementById("nameError").innerText = "Required";
+                  isValid = false;
+              } else if (!name.match(namePattern)) {
+                  document.getElementById("nameError").innerText = "Only alphabets and spaces are allowed";
+                  isValid = false;
+              } else {
+                  document.getElementById("nameError").innerText = "";
+              }
+          
+              let phone = document.getElementById("phone").value;
+              let phonePattern = /^\d{3}\d{3}\d{4}$/;
+              if (phone.trim() === "") {
+                  document.getElementById("phoneError").innerText = "Required";
+                  isValid = false;
+              } else if (!phone.match(phonePattern)) {
+                  document.getElementById("phoneError").innerText = "Enter a valid phone number (XXX-XXX-XXXX)";
+                  isValid = false;
+              } else {
+                  document.getElementById("phoneError").innerText = "";
+              }
+          
+              let email = document.getElementById("email").value;
+              let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+              if (email.trim() === "") {
+                  document.getElementById("emailError").innerText = "Required";
+                  isValid = false;
+              } else if (!email.match(emailPattern)) {
+                  document.getElementById("emailError").innerText = "Enter a valid email address";
+                  isValid = false;
+              } else {
+                  document.getElementById("emailError").innerText = "";
+              }
+          
+              let message = document.getElementById("message").value;
+              if (message.trim() === "") {
+                  document.getElementById("messageError").innerText = "Required";
+                  isValid = false;
+              } else {
+                  document.getElementById("messageError").innerText = "";
+              }
+          
+              if (!isValid) {
+                  event.preventDefault();
+              }
+          });
+          </script>
     </body>
 </html>
-       

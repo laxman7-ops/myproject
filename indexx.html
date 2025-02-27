@@ -134,15 +134,20 @@
                     <div class="cont" style="display: flex; margin-left: 100px; margin-top: 100px;">
                         <img src="images/contact-img.png" height="300px" width="400px" style="margin-left: 44px;">
                     
-                        <div class="form" style="display: flex; flex-direction: column; margin-left: 300px; padding: 10px; height: 330px;"> 
-                    <form method="post" action="contact.php">
-                    <h2>Contact us</h2>
-                    <input type="text" name="name" placeholder="Name">
-                    <input type="phone" name="phone" placeholder="Phone">
-                    <input type="email" name="email" placeholder="Email">
-                    <textarea class="massage_text" placeholder="Message" rows="2" cols="25" id="comment" name="message"></textarea><br>
-                    <button type="submit" name="submit" style="background-color: orangered; color: white; margin-left: 130px; margin-top: 15px; font-size: 16px; ">Submit</button>
-                </form>
+                        <div class="form" style="display: flex; flex-direction: column; margin-left: 300px; padding: 10px; height: 400px;"> 
+                            <form id="myForm" action="contact.php" method="post" style="margin-top: 15px;">
+                                <h2>Contact us</h2>
+                                <input type="text" name="name" placeholder="Name">
+                                <div class="error">
+                                </div>
+                                <input type="phone" name="phone" placeholder="Phone">
+                                <div class="error"></div>
+                                <input type="email" name="email" placeholder="Email">
+                                <div class="error"></div>
+                                <textarea class="massage_text" placeholder="Message" rows="2" cols="25" id="comment" name="message"></textarea>
+                                <div class="error"></div>
+                                <button type="submit" name="submit" style="background-color: orangered; color: white; margin-left: 100px; margin-top: 15px; font-size: 16px; ">Submit</button>
+                            </form>
                     </div>
                     </div>
                     <div class="footer_section layout_padding" style="height: 50%; background: linear-gradient(to top, rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);">
@@ -170,6 +175,59 @@
                
         </div>
         <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+        <script>
+            document.getElementById("myForm").addEventListener("submit", function(event) {
+                let isValid = true;
+            
+                let name = document.getElementById("name").value;
+                let namePattern = /^[A-Za-z\s]+$/;
+                if (name.trim() === "") {
+                    document.getElementById("nameError").innerText = "Required";
+                    isValid = false;
+                } else if (!name.match(namePattern)) {
+                    document.getElementById("nameError").innerText = "Only alphabets and spaces are allowed";
+                    isValid = false;
+                } else {
+                    document.getElementById("nameError").innerText = "";
+                }
+            
+                let phone = document.getElementById("phone").value;
+                let phonePattern = /^\d{3}\d{3}\d{4}$/;
+                if (phone.trim() === "") {
+                    document.getElementById("phoneError").innerText = "Required";
+                    isValid = false;
+                } else if (!phone.match(phonePattern)) {
+                    document.getElementById("phoneError").innerText = "Enter a valid phone number (XXX-XXX-XXXX)";
+                    isValid = false;
+                } else {
+                    document.getElementById("phoneError").innerText = "";
+                }
+            
+                let email = document.getElementById("email").value;
+                let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                if (email.trim() === "") {
+                    document.getElementById("emailError").innerText = "Required";
+                    isValid = false;
+                } else if (!email.match(emailPattern)) {
+                    document.getElementById("emailError").innerText = "Enter a valid email address";
+                    isValid = false;
+                } else {
+                    document.getElementById("emailError").innerText = "";
+                }
+            
+                let message = document.getElementById("message").value;
+                if (message.trim() === "") {
+                    document.getElementById("messageError").innerText = "Required";
+                    isValid = false;
+                } else {
+                    document.getElementById("messageError").innerText = "";
+                }
+            
+                if (!isValid) {
+                    event.preventDefault();
+                }
+            });
+            </script>
     </body>
 </html>
        

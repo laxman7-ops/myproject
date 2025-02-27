@@ -185,11 +185,27 @@ ul li a:hover{
     margin-top: 13px;
     margin-left: 125px;
     width: 250px;
-    height: 400px;
+    height: 430px;
     background: linear-gradient(to top, rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
+    left: 870px;
     transform: translate(0%,-5%);
     border-radius: 10px;
     padding: 25px;
+}
+
+.form h2{
+    width: 220px;
+    font-family: sans-serif;
+    text-align: center;
+    color: #ff7200;
+    font-size: 22px;
+    border-radius: 10px;
+    margin: 2px;
+    padding: 8px;
+}
+input::placeholder {
+    color: rgb(158, 158, 158);
+    opacity: 1;
 }
 
 .form input{
@@ -200,7 +216,7 @@ ul li a:hover{
     border-top: none;
     border-right: none;
     border-left: none;
-    color: #000000;
+    color: #fff;
     font-size: 15px;
     letter-spacing: 1px;
     margin-top: 30px;
@@ -284,7 +300,10 @@ ul li a:hover{
     transition: background-color 0.3s ease;
     width: 100%;
 }
-
+.error{
+    color: red;
+    font-style: italic;
+}
 button:hover {
     background-color: #2980b9;
 }
