@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
         if ($conn->query($insert_query) === TRUE) {
             echo '<script>
         alert("Message Sent Successfully!");
-        // window.location.href = "indexx.html";
+        window.location.href = "indexx.html";
       </script>';
         } else {
             echo "Error: " . $conn->error;
