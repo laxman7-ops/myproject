@@ -15,6 +15,9 @@
     background-image: url(images/banner-bg.png);
     padding-left: 35px;
     border-radius: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 .icon{
     width: 200px;
@@ -78,6 +81,22 @@ ul li a:hover{
     padding: 10px;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
+}
+.btnn{
+    width: 100px;
+    height: 25px;
+    background: #ff7200;
+    border: none;
+    margin-top: 30px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.4s ease;
+}
+.btnn:hover{
+    background: #fff;
+    color: #ff7200;
 }
 .btn{
     background: red;

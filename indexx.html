@@ -8,7 +8,7 @@
     <div class="main">
         <div class="navbar">
             <div class="icon">
-                <h2 class="logo">Blog</h2>
+                <h2 class="logo"><a href="indexx.html" style="text-decoration: none;color: rgb(255, 13, 0);">Blog</h2></a>
             </div>
             <div class="menu">
                 <ul>
@@ -24,7 +24,11 @@
                 <input type="srch" name="srch" placeholder="Search post">
                 <a href="#"><button class="btn"><img src="images/serach-icon.png" height="10px" width="15px"></button></a>
             </div>
-
+            <div class="logout">
+                <form action="logout.php" method="post">
+                <button name="submit" class="btnn" style="width: 100px; float: left; font-family: arial;">Log out</button>
+                </form>
+            </div>
         </div>
         <div class="content">
                 <h1 style="text-align: center;">Welcome to <br><span>Blogging</span> <br>Website</h1>
@@ -134,8 +138,8 @@
                     <div class="cont" style="display: flex; margin-left: 100px; margin-top: 100px;">
                         <img src="images/contact-img.png" height="300px" width="400px" style="margin-left: 44px;">
                     
-                        <div class="form" style="display: flex; flex-direction: column; margin-left: 300px; padding: 10px; height: 400px;"> 
-                            <form id="myForm" action="contact.php" method="post" style="margin-top: 15px;">
+                        <div class="form" style="display: flex; flex-direction: column; margin-left: 250px;"> 
+                            <form id="myForm" action="contact.php" method="post" style="margin: auto; color: white; flex-direction: column; padding: 0px;height: 400px;">
                                 <h2>Contact us</h2>
                                 <input type="text" id="name" name="name" placeholder="Name">
                                 <div id="nameError" class="error"></div>
@@ -154,7 +158,7 @@
                            <div class="footer_logo" ><a href="index.html"><img src="images/footer-logo.png" height="100px" width="100px" style="margin-left: 700px;margin-top: 50px;"></a></div>
                            <div class="footer_menu" style="display: flex; margin-left: 320px;">
                               <ul>
-                                 <li><a href="index.html">Home</a></li>
+                                 <li><a href="indexx.html">Home</a></li>
                                  <li><a href="blog.html">Blog</a></li>
                                  <li><a href="features.html">Post</a></li>
                                  <li><a href="about.html">About</a></li>
